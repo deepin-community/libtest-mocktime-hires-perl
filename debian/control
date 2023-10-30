@@ -1,15 +1,31 @@
-Source: template-repository
-Section: unknown
+Source: libtest-mocktime-hires-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>
+Section: perl
+Testsuite: autopkgtest-pkg-perl
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               libmodule-build-tiny-perl,
+               perl
+Build-Depends-Indep: libtest-class-perl <!nocheck>,
+                     libtest-mocktime-perl <!nocheck>,
+                     libtest-requires-perl <!nocheck>,
+                     libtest-simple-perl <!nocheck>
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libtest-mocktime-hires-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libtest-mocktime-hires-perl.git
+Homepage: https://metacpan.org/release/Test-MockTime-HiRes
+Rules-Requires-Root: no
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: libtest-mocktime-hires-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         libtest-mocktime-perl,
+         libtest-simple-perl
+Description: Time::HiRes compatible version of Test::MockTime
+ Test::MockTime::HiRes is a Time::HiRes compatible version of Test::MockTime.
+ It replaces the actual time with a simulated high resolution time.
+ .
+ The module also provides mock_time to restrict the effect of the simulation
+ in a code block.
